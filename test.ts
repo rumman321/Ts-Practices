@@ -154,6 +154,25 @@ function getDay(day: Day): string {
     }
     return "Weekday";
 }
-console.log(getDay(Day.Friday)); 
-console.log(getDay(Day.Saturday)); 
+// console.log(getDay(Day.Friday)); 
+// console.log(getDay(Day.Saturday)); 
+
+//problem : 8
+async function squareAsync(n: number): Promise<number> {
+    return new Promise((resolve, reject) => {
+      
+        setTimeout(() => {
+            if (n < 0) {
+               
+                reject(new Error("Negative number not allowed"));
+            } else {
+               
+                resolve(n * n);
+            }
+        }, 1000); 
+    });
+}
+squareAsync(-4)
+    .then(result => console.log("Result:", result))
+    .catch(error => console.error("Error:", error.message));
 }
