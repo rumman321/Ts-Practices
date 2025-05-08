@@ -37,7 +37,27 @@
 
   const TopBooks = filterByRating(books);
 
-//   console.log(TopBooks);
+  //   console.log(TopBooks);
 
+  //   problem:3
 
+  function concatenateArrays<T>(...arrays: T[][]): T[] {
+   
+    const result: T[] = [];
+
+    
+    for (let i = 0; i < arrays.length; i++) {
+      const currentArray = arrays[i];
+      
+      for (let j = 0; j < currentArray.length; j++) {
+        const currentItem = currentArray[j];
+        result.push(currentItem);
+      }
+    }    
+    return result;
+  }
+
+  const Output1 = concatenateArrays(["a", "b"], ["c"]);
+  const Output2 = concatenateArrays([1, 2], [3, 4], [5]);
+//   console.log(Output2); 
 }
