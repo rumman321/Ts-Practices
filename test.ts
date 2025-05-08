@@ -98,5 +98,41 @@ class Car extends Vehicle {
 const myCar = new Car("BMW", 2020, "i8");
 
 // console.log(myCar.getInfo());   
-// console.log(myCar.getModel());  
+// console.log(myCar.getModel()); 
+
+//problem : 6
+
+interface Product {
+    name: string;
+    price: number;
+}
+
+function getMostExpensiveProduct(products: Product[]): Product | null {
+    
+    if (products.length === 0) {
+        return null;
+    }
+
+    let mostExpensive: Product = products[0];
+
+    for (let i = 1; i < products.length; i++) {
+        const currentProduct = products[i];
+
+        if (currentProduct.price > mostExpensive.price) {
+            mostExpensive = currentProduct;
+        }
+    }
+
+    return mostExpensive;
+}
+
+const products: Product[] = [
+    { name: "pen", price: 10 },
+    { name: "book", price: 25 },
+    { name: "taka", price: 50 }
+];
+
+const result = getMostExpensiveProduct(products);
+
+console.log(result);
 }
